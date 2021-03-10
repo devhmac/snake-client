@@ -2,21 +2,21 @@
 let connection;
 
 // function to handle user inputs
-const handleUserInput = process.stdin.on('data', (key) => {
+const handleUserInput = (key) => {
   if (key === '\u0003') {
     console.log("Thanks for using me, ciao!")
     process.exit();
   }
-  if (key === 'w') {
-    connection.write('Move: up');
-  } else if (key === 'a') {
-    connection.write('Move: left');
-  } else if (key === 's') {
-    connection.write('Move: down');
-  } else if (key === 'd') {
-    connection.write('Move: right');
-  }
-})
+  //movement
+  if (key === 'w') connection.write('Move: up');
+  if (key === 'a') connection.write('Move: left');
+  if (key === 's') connection.write('Move: down');
+  if (key === 'd') connection.write('Move: right');
+
+  if (key === '1') connection.write('Say: Imma eat you')
+  if (key === '2') connection.write('Say: Im so loooong')
+  if (key === '3') connection.write('Say: yo soy numero uno')
+}
 
 
 //setting up stdin to handle user input
@@ -27,8 +27,8 @@ const setupInput = (conn) => {
   stdin.setEncoding('utf8');
   stdin.resume();
   // on stdin callback function handleUserInput is passed in to handle the data in from user
-
-  handleUserInput
+  process.stdin.on('data', handleUserInput)
+  //handleUserInput
 
 
   return stdin;
