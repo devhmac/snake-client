@@ -19,7 +19,7 @@ const handleUserInput = (key) => {
 }
 
 
-//setting up stdin to handle user input
+//setting up stdin 'event handler' to handle user input
 const setupInput = (conn) => {
   connection = conn
   const stdin = process.stdin;
@@ -27,6 +27,7 @@ const setupInput = (conn) => {
   stdin.setEncoding('utf8');
   stdin.resume();
   // on stdin callback function handleUserInput is passed in to handle the data in from user
+  //this is an event handler
   process.stdin.on('data', handleUserInput)
   //handleUserInput
 
