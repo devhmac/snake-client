@@ -8,11 +8,11 @@ const handleUserInput = (key) => {
     process.exit();
   }
   //movement
-  if (key === 'w') connection.write('Move: up');
+  if (key === 'w') connection.write('Move: up'); //connection.write is = to conn.write() in client.js
   if (key === 'a') connection.write('Move: left');
   if (key === 's') connection.write('Move: down');
   if (key === 'd') connection.write('Move: right');
-
+  // chat buttons
   if (key === '1') connection.write('Say: Imma eat you')
   if (key === '2') connection.write('Say: Im so loooong')
   if (key === '3') connection.write('Say: yo soy numero uno')

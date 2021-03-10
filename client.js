@@ -1,12 +1,13 @@
 //requiring net package from node
 const net = require('net');
+const { IP, PORT } = require('./constants')
 
 // boiler plate for client side connection
 const connect = () => {
   // this is where we're connecting
   const conn = net.createConnection({
-    host: '135.23.222.131',
-    port: 50542
+    host: IP,
+    port: PORT
   });
   //interpret incoming data as text(utf8)
   conn.setEncoding('utf8')
