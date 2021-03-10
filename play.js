@@ -11,6 +11,11 @@ const connect = () => {
   //interpret incoming data as text(utf8)
   conn.setEncoding('utf8')
 
+  // this is the event handler for incoming data from server to client
+  conn.on('data', (data) => {
+    console.log('Server says: ', data);
+  })
+
   return conn;
 }
 
