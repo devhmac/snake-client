@@ -16,6 +16,11 @@ const connect = () => {
     console.log('Server says: ', data);
   })
 
+  conn.on('connect', () => {
+    console.log("client has connected to the game server")
+    conn.write("Name: Dev");
+  })
+
   return conn;
 }
 module.exports = connect;
